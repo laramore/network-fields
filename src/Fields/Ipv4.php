@@ -10,27 +10,10 @@
 
 namespace Laramore\Fields;
 
-use Laramore\Contracts\Field\PatternField;
+use Laramore\Contracts\Field\IpField;
+use Laramore\Traits\Field\ConfigPattern;
 
-class Ipv4 extends Char implements PatternField
+class Ipv4 extends Char implements IpField
 {
-    /**
-     * Return the pattern to match.
-     *
-     * @return string
-     */
-    public function getPattern(): string
-    {
-        return $this->getConfig('pattern');
-    }
-
-    /**
-     * Return all pattern flags
-     *
-     * @return mixed
-     */
-    public function getPatternFlags()
-    {
-        return null;
-    }
+    use ConfigPattern;
 }
