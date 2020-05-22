@@ -12,23 +12,7 @@ namespace Laramore\Fields;
 
 class Url extends Uri
 {
-    protected $secured = false;
-
-    /**
-     * Create a new field with basic options.
-     * The constructor is protected so the field is created writing left to right.
-     * ex: Text::field()->maxLength(255) insteadof (new Text)->maxLength(255).
-     *
-     * Secure option is defined with config file.
-     *
-     * @param array|null $options
-     */
-    protected function __construct(array $options=null)
-    {
-        parent::__construct($options);
-
-        $this->secured = $this->getConfig('secured');
-    }
+    protected $secured;
 
     /**
      * Return the protocol pattern.

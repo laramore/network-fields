@@ -25,40 +25,45 @@ return [
             'max_length' => 45, // https://stackoverflow.com/a/7477384/13550768 .
             'pattern' => '/^(((?=(?>.*?(::))(?!.+\3)))\3?|([\dA-F]{1,4}(\3|:(?!$)|$)|\2))(?4){5}((?4){2}|((2[0-4]|1\d|[1-9])?\d|25[0-5])(\.(?7)){3})\z/i',
         ],
-    'url' => [
-        'type' => 'url',
-        'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
-        'secured' => false,
-        'proxy' => [
-            'configurations' => [
-                'fix' => [],
-            ],
+        'mac_address' => [
+            'type' => 'mac_address',
+            'max_length' => 17,
+            'pattern' => '/^([a-fA-F0-9]{2}:){5}[a-fA-F0-9]{2}$/',
         ],
-        'patterns' => [
-            'identifier' => '/^\S+$/',
-            'protocol' => '/^https?:\/\/$/',
-            'secured_protocol' => '/^https:\/\/$/',
-            'uri' => '/^https?:\/\/\S+$/',
-            'secured_uri' => '/^https?:\/\/\S+$/',
-            'flags' => null,
-        ]
-    ],
-    'ftp' => [
-        'type' => 'ftp',
-        'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
-        'secured' => false,
-        'proxy' => [
-            'configurations' => [
-                'fix' => [],
+        'url' => [
+            'type' => 'url',
+            'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
+            'secured' => false,
+            'proxy' => [
+                'configurations' => [
+                    'fix' => [],
+                ],
             ],
+            'patterns' => [
+                'identifier' => '/^\S+$/',
+                'protocol' => '/^https?:\/\/$/',
+                'secured_protocol' => '/^https:\/\/$/',
+                'uri' => '/^https?:\/\/\S+$/',
+                'secured_uri' => '/^https?:\/\/\S+$/',
+                'flags' => null,
+            ]
         ],
-        'patterns' => [
-            'identifier' => '/^([a-z0-9]+:[a-z0-9]+@)?([\.a-z0-9]+)/([\./a-z0-9]+)$/',
-            'protocol' => '/^ftp:\/\/$/',
-            'uri' => '/^ftp:\/\/([a-z0-9]+:[a-z0-9]+@)?([\.a-z0-9]+)/([\./a-z0-9]+)$/',
-            'flags' => null,
-        ]
-    ],
+        'ftp' => [
+            'type' => 'ftp',
+            'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
+            'secured' => false,
+            'proxy' => [
+                'configurations' => [
+                    'fix' => [],
+                ],
+            ],
+            'patterns' => [
+                'identifier' => '/^([a-z0-9]+:[a-z0-9]+@)?([\.a-z0-9]+)/([\./a-z0-9]+)$/',
+                'protocol' => '/^ftp:\/\/$/',
+                'uri' => '/^ftp:\/\/([a-z0-9]+:[a-z0-9]+@)?([\.a-z0-9]+)/([\./a-z0-9]+)$/',
+                'flags' => null,
+            ]
+        ],
     ],
     
 ];
