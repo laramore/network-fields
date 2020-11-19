@@ -33,7 +33,7 @@ return [
         'url' => [
             'type' => 'url',
             'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
-            'secured' => false,
+            'secured' => true,
             'proxy' => [
                 'configurations' => [
                     'fix' => [],
