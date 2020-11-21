@@ -44,7 +44,37 @@ return [
                 'protocol' => '/^https?:\/\/$/',
                 'secured_protocol' => '/^https:\/\/$/',
                 'uri' => '/^https?:\/\/\S+$/',
-                'secured_uri' => '/^https?:\/\/\S+$/',
+                'secured_uri' => '/^https:\/\/\S+$/',
+                'flags' => null,
+            ]
+        ],
+        'http' => [
+            'type' => 'url',
+            'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
+            'proxy' => [
+                'configurations' => [
+                    'fix' => [],
+                ],
+            ],
+            'patterns' => [
+                'identifier' => '/^\S+$/',
+                'protocol' => '/^http:\/\/$/',
+                'uri' => '/^http:\/\/\S+$/',
+                'flags' => null,
+            ]
+        ],
+        'https' => [
+            'type' => 'url',
+            'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
+            'proxy' => [
+                'configurations' => [
+                    'fix' => [],
+                ],
+            ],
+            'patterns' => [
+                'identifier' => '/^\S+$/',
+                'protocol' => '/^https:\/\/$/',
+                'uri' => '/^https:\/\/\S+$/',
                 'flags' => null,
             ]
         ],
