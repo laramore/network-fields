@@ -1,5 +1,7 @@
 <?php
 
+namespace Laramore\Fields;
+
 use Illuminate\Support\Facades\Schema;
 
 
@@ -15,22 +17,22 @@ return [
     */
 
     'configurations' => [
-        'ipv4' => [
+        Ipv4::class => [
             'type' => 'ipv4',
             'max_length' => 15,
             'pattern' => '/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/',
         ],
-        'ipv6' => [
+        Ipv6::class => [
             'type' => 'ipv6',
             'max_length' => 45, // https://stackoverflow.com/a/7477384/13550768 .
             'pattern' => '/^(((?=(?>.*?(::))(?!.+\3)))\3?|([\dA-F]{1,4}(\3|:(?!$)|$)|\2))(?4){5}((?4){2}|((2[0-4]|1\d|[1-9])?\d|25[0-5])(\.(?7)){3})\z/i',
         ],
-        'mac_address' => [
+        MacAddress::class => [
             'type' => 'mac_address',
             'max_length' => 17,
             'pattern' => '/^([a-fA-F0-9]{2}:){5}[a-fA-F0-9]{2}$/',
         ],
-        'url' => [
+        Url::class => [
             'type' => 'url',
             'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
             'secured' => true,
@@ -48,9 +50,12 @@ return [
                 'flags' => null,
             ]
         ],
-        'http' => [
+        Http::class => [
             'type' => 'url',
             'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
+            'allowed_protocols' => [
+                'http://',
+            ],
             'proxy' => [
                 'configurations' => [
                     'fix' => [],
@@ -63,9 +68,12 @@ return [
                 'flags' => null,
             ]
         ],
-        'https' => [
+        Https::class => [
             'type' => 'url',
             'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
+            'allowed_protocols' => [
+                'https://',
+            ],
             'proxy' => [
                 'configurations' => [
                     'fix' => [],
@@ -78,7 +86,7 @@ return [
                 'flags' => null,
             ]
         ],
-        'ftp' => [
+        Ftp::class => [
             'type' => 'ftp',
             'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
             'secured' => false,

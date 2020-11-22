@@ -14,6 +14,7 @@ return [
     'configurations' => [
         'url' => [
             'native' => 'url',
+            'factory_name' => 'char',
             'default_options' => [
                 'visible', 'fillable', 'required',
             ],
