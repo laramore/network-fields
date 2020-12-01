@@ -17,27 +17,116 @@ return [
     */
 
     'configurations' => [
+        Ip::class => [
+            'options' => [
+                'visible', 'fillable', 'required',
+            ],
+            'max_length' => 45, // https://stackoverflow.com/a/7477384/13550768 .
+            'patterns' => [
+                'v4' => '/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/',
+                'v6' => '/^(((?=(?>.*?(::))(?!.+\3)))\3?|([\dA-F]{1,4}(\3|:(?!$)|$)|\2))(?4){5}((?4){2}|((2[0-4]|1\d|[1-9])?\d|25[0-5])(\.(?7)){3})\z/i',
+                'flags' => null,
+            ],
+            'proxy' => [
+                'configurations' => [
+                    'dry' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'hydrate' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'resize' => [],
+                ],
+            ],
+        ],
         Ipv4::class => [
-            'type' => 'ipv4',
+            'options' => [
+                'visible', 'fillable', 'required',
+            ],
             'max_length' => 15,
-            'pattern' => '/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/',
+            'patterns' => [
+                'ip' => '/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/',
+                'flags' => null,
+            ],
+            'proxy' => [
+                'configurations' => [
+                    'dry' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'hydrate' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'resize' => [],
+                ],
+            ],
         ],
         Ipv6::class => [
-            'type' => 'ipv6',
+            'options' => [
+                'visible', 'fillable', 'required',
+            ],
             'max_length' => 45, // https://stackoverflow.com/a/7477384/13550768 .
-            'pattern' => '/^(((?=(?>.*?(::))(?!.+\3)))\3?|([\dA-F]{1,4}(\3|:(?!$)|$)|\2))(?4){5}((?4){2}|((2[0-4]|1\d|[1-9])?\d|25[0-5])(\.(?7)){3})\z/i',
+            'patterns' => [
+                'ip' => '/^(((?=(?>.*?(::))(?!.+\3)))\3?|([\dA-F]{1,4}(\3|:(?!$)|$)|\2))(?4){5}((?4){2}|((2[0-4]|1\d|[1-9])?\d|25[0-5])(\.(?7)){3})\z/i',
+                'flags' => null,
+            ],
+            'proxy' => [
+                'configurations' => [
+                    'dry' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'hydrate' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'resize' => [],
+                ],
+            ],
         ],
         MacAddress::class => [
-            'type' => 'mac_address',
+            'options' => [
+                'visible', 'fillable', 'required',
+            ],
             'max_length' => 17,
-            'pattern' => '/^([a-fA-F0-9]{2}:){5}[a-fA-F0-9]{2}$/',
+            'patterns' => [
+                'address' => '/^([a-fA-F0-9]{2}:){5}[a-fA-F0-9]{2}$/',
+                'flags' => null,
+            ],
+            'proxy' => [
+                'configurations' => [
+                    'dry' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'hydrate' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'resize' => [],
+                ],
+            ],
         ],
         Url::class => [
-            'type' => 'url',
+            'options' => [
+                'visible', 'fillable', 'required',
+            ],
             'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
             'secured' => true,
             'proxy' => [
                 'configurations' => [
+                    'dry' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'hydrate' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'resize' => [],
                     'fix' => [],
                 ],
             ],
@@ -51,13 +140,24 @@ return [
             ]
         ],
         Http::class => [
-            'type' => 'url',
+            'options' => [
+                'visible', 'fillable', 'required',
+            ],
             'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
             'allowed_protocols' => [
                 'http://',
             ],
             'proxy' => [
                 'configurations' => [
+                    'dry' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'hydrate' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'resize' => [],
                     'fix' => [],
                 ],
             ],
@@ -69,13 +169,21 @@ return [
             ]
         ],
         Https::class => [
-            'type' => 'url',
-            'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
-            'allowed_protocols' => [
-                'https://',
+            'options' => [
+                'visible', 'fillable', 'required',
             ],
+            'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
             'proxy' => [
                 'configurations' => [
+                    'dry' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'hydrate' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'resize' => [],
                     'fix' => [],
                 ],
             ],
@@ -84,14 +192,28 @@ return [
                 'protocol' => '/^https:\/\/$/',
                 'uri' => '/^https:\/\/\S+$/',
                 'flags' => null,
-            ]
+            ],
+            'allowed_protocols' => [
+                'https://',
+            ],
         ],
         Ftp::class => [
-            'type' => 'ftp',
+            'options' => [
+                'visible', 'fillable', 'required',
+            ],
             'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
             'secured' => false,
             'proxy' => [
                 'configurations' => [
+                    'dry' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'hydrate' => [
+                        'static' => true,
+                        'allow_multi' => false,
+                    ],
+                    'resize' => [],
                     'fix' => [],
                 ],
             ],
