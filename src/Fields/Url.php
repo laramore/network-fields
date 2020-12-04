@@ -21,7 +21,7 @@ class Url extends Uri
      */
     public function getProtocolPattern(): string
     {
-        return $this->getConfig($this->secured ? 'patterns.secured_protocol' : 'patterns.protocol');
+        return $this->patterns[$this->secured ? 'secured_protocol' : 'protocol'];
     }
 
     /**
@@ -31,6 +31,6 @@ class Url extends Uri
      */
     public function getPattern(): string
     {
-        return $this->getConfig($this->secured ? 'patterns.secured_uri' : 'patterns.uri');
+        return $this->patterns[$this->secured ? 'secured_uri' : 'uri'];
     }
 }

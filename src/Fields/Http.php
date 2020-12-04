@@ -19,7 +19,7 @@ class Http extends Url
      */
     public function getProtocolPattern(): string
     {
-        return $this->getConfig('patterns.protocol');
+        return $this->patterns['protocol'];
     }
 
     /**
@@ -29,6 +29,6 @@ class Http extends Url
      */
     public function getPattern(): string
     {
-        return $this->getConfig('patterns.uri');
+        return $this->patterns['uri'];
     }
 }
