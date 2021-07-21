@@ -10,9 +10,6 @@
 
 namespace Laramore\Fields;
 
-use Laramore\Contracts\Field\IpField;
-use Laramore\Traits\Field\ConfigPattern;
-
 class Ipv6 extends Ip
 {
 }

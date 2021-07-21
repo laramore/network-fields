@@ -10,7 +10,7 @@
 
 namespace Laramore\Fields;
 
-class Ipv4 extends Char
+class Ip extends Char
 {
     /**
      * All patterns defined for this field.
