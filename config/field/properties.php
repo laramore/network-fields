@@ -2,9 +2,6 @@
 
 namespace Laramore\Fields;
 
-use Illuminate\Support\Facades\Schema;
-
-
 return [
 
     /*
@@ -112,7 +109,6 @@ return [
         'options' => [
             'visible', 'fillable', 'required',
         ],
-        'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
         'secured' => true,
         'proxy' => [
             'configurations' => [
@@ -141,7 +137,6 @@ return [
         'options' => [
             'visible', 'fillable', 'required',
         ],
-        'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
         'allowed_protocols' => [
             'http://',
         ],
@@ -170,7 +165,6 @@ return [
         'options' => [
             'visible', 'fillable', 'required',
         ],
-        'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
         'proxy' => [
             'configurations' => [
                 'dry' => [
@@ -199,7 +193,6 @@ return [
         'options' => [
             'visible', 'fillable', 'required',
         ],
-        'max_length' => Schema::getFacadeRoot()::$defaultStringLength,
         'secured' => false,
         'proxy' => [
             'configurations' => [
@@ -222,5 +215,5 @@ return [
             'flags' => null,
         ],
     ],
-    
+
 ];
