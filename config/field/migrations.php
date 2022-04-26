@@ -17,50 +17,50 @@ return [
     Ip::class => [
         'type' => 'char',
         'property_keys' => [
-            'length:maxLength', 'nullable', 'default',
+            'length', 'nullable', 'default',
         ],
     ],
     Ipv4::class => [
         'type' => 'char',
         'property_keys' => [
-            'length:maxLength', 'nullable', 'default',
+            'length', 'nullable', 'default',
         ],
     ],
     Ipv6::class => [
         'type' => 'char',
         'property_keys' => [
-            'length:maxLength', 'nullable', 'default',
+            'length', 'nullable', 'default',
         ],
     ],
     MacAddress::class => [
         'type' => 'char',
         'property_keys' => [
-            'length:maxLength', 'nullable', 'default',
+            'length', 'nullable', 'default',
         ],
     ],
     Url::class => [
         'type' => 'char',
         'property_keys' => [
-            'length:maxLength', 'nullable', 'default',
+            'length', 'nullable', 'default',
         ],
     ],
     Http::class => [
         'type' => 'char',
         'property_keys' => [
-            'length:maxLength', 'nullable', 'default',
+            'length', 'nullable', 'default',
         ],
     ],
     Https::class => [
         'type' => 'char',
         'property_keys' => [
-            'length:maxLength', 'nullable', 'default',
+            'length', 'nullable', 'default',
         ],
     ],
     Ftp::class => [
         'type' => 'char',
         'property_keys' => [
-            'length:maxLength', 'nullable', 'default',
+            'length', 'nullable', 'default',
         ],
     ],
-    
+
 ];
